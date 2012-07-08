@@ -1,0 +1,62 @@
+.item-button {
+  position:relative;
+  align:right;
+  display:inline right;
+}
+
+.ui-autocomplete-table {
+  border-spacing: 0;
+}
+
+.ui-autocomplete-table td, .ui-autocomplete-table th {
+  padding: 0;
+  border: 0 none;
+}
+
+
+.ui-autocomplete-category {
+  vertical-align: top;
+}
+
+.ui-autocomplete-category h3 {
+  color: #aaa;
+  font-size: 100%;
+  font-weight: normal;
+
+  text-align: right;
+  margin: 0;
+
+  /* same as .ui-menu-item a */
+  padding: .2em .4em;
+  line-height: 1.5;
+}
+
+.ui-autocomplete-category th {
+  border-right: 1px solid #ddd;
+}
+
+.ui-autocomplete-category td {
+  background-color: #fbfbfb;
+  border-top: 1px solid #ddd;
+}
+
+.ui-autocomplete-category:first-child td {
+  border-top: 0 none;
+}
+
+.ui-autocomplete-category:nth-child(2n) td {
+  background-color: #f4f4f4;
+}
+
+.ui-autocomplete-category ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ui-autocomplete-category td img {
+  border: 1px solid #fff;
+  outline: 1px solid #ddd;
+  margin-right: .4em;
+  vertical-align: top;
+}
