@@ -5,11 +5,12 @@ $(function() {
 	youtube_search();
 	
 	// Functions to define youtube search and normal search
-	
 	function normal_search() {
 		$("#search").focus();
 		$("#search").attr("placeholder", "Search for any artist, album, or song");
 
+		// Initializes the autocomplete of 'category complete'
+		// This makes it so we can show the categories!
 		$( "#search" ).catcomplete({	
 			focus: function(event, ui) {
 				if (ui.item) {
@@ -29,11 +30,12 @@ $(function() {
 					ui.item.category == "Compilation" || ui.item.category == "EP") {
 						getSongsForAlbumAndDisplay(ui.item);
 					}
-
+					
+					// If artist selected, get there albums
 					else if (ui.item.category == "Artists") {
 						getAlbumsForArtist(ui.item);
 					}
-
+					// If it is a song, add it to the playlist
 					else if (ui.item.category == "Songs" || ui.item.category == "Top Songs") {
 						$(ui).css({opacity: 0.4});
 						addSongToPlaylist(ui.item);
@@ -47,9 +49,6 @@ $(function() {
 				$("#search").addClass("searching");
 				$.get('autocomplete/'+request.term, function(data) {
 					$("#search").removeClass("searching");
-					var test = "";
-					console.log('poop');
-					console.log(data);
 					if (data == 'nothing') {
 						var items = new Array();
 						  items.push({value: "No matches found. Dearly sorry. Try again.", 
@@ -58,35 +57,18 @@ $(function() {
 						});
 						response(items);
 					} else {
+						// Add the data to the stack for back button
 						back.pop();
 						back.push(data);
 						response(data);
 					}
-					// back.push(data);
-					// setAutocompleter(data);
 				});
-
-				// now.receiveResponse = function(data) {
-				// 	$("#search").removeClass("searching");
-				// 	var test = "";
-				// 	if (!data.length) {
-				// 		response("");
-				// 	} else {
-				// 		back.pop();
-				// 		back.push(data);
-				// 		response(data);
-				// 	}
-				// }
-				// 
-				// now.ready(function() {
-				// 	$("#search").addClass("searching");
-				// 	now.sendAutocomplete(encode);
-				// });
 			},
 			minLength: 0
 		});
 	}
 	
+	// Youtube search functionality
 	function youtube_search() {
 		$("#search").focus();
 		$("#search").attr("placeholder", "Search Youtube for any song or video (then press enter or click a dropdown to search)");
@@ -158,6 +140,7 @@ $(function() {
 	
 
 	// If press enter when searching youtube
+	// We want it to search for the item currently typed
 	$(document).keypress(function(e){
 		if(e.which == 13 ){
 			if ( ($("#youtube_search").hasClass('active'))) {
