@@ -1,0 +1,8 @@
+This is the autocomplete used on Tunesicles.com.
+
+I wanted all the searching to happen in the dropdown of the search box on the site. So when you search something you will see the results for that in the dropdown. Then you may click the to see the artists name and then the dropdown would change to show the artists songs. You can then add them to your playlist from there. So easy!
+
+An example of what this achieves:
+
+  
+![tunesicles dropdown](http://i.imgur.com/wm9qY.png)
